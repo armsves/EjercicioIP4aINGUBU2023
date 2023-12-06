@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrega IP 4 Armando Medina</title>
+    <script src="NAA00OO_IP.js"></script>
+    <script>
+        function enviar() {
+            let monto = document.getElementById("monto").value;
+            //monto = Number(window.prompt('Introduzca el monto del cheque:'));
+            textoFinal = 'El importe es: ';
+            texto = '';
+            entero = Math.floor(monto);
+            error = 0;
+            if (entero < 999999999) {
+                textoFinal += String(evaluarEntero(entero));
+            } else {
+                error = 1;
+            }
+            if (entero == 1) {
+                textoFinal += 'euro';
+            } else if (entero > 0) {
+                textoFinal += ' euros';
+            }
+            decimal = Math.round((monto - entero) * 100);
+            if (decimal > 0) {
+                if (entero > 0) {
+                    textoFinal += ' con ';
+                }
+                textoFinal += String(decenas2(decimal));
+                if (decimal == 1) {
+                    textoFinal += ' céntimo';
+                } else {
+                    textoFinal += ' céntimos';
+                }
+            }
+            if (error == 1) {
+                textoFinal = 'El número sobrepasa los dígitos permitidos';
+            }
+            //window.alert(textoFinal);
+            var textoCheque = document.getElementById('textoCheque');
+            textoCheque.innerHTML = String(textoFinal);
+            textoCheque.style.display = 'block';
+        }
+    </script>
+    <style>
+        body {
+            background-color: #262626;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+            font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+        }
+
+        .container {
+            width: 600px;
+            margin: 50px auto;
+            background-color: #151515;
+            padding: 20px;
+            border-radius: 0.594rem;
+        }
+
+        #button {
+            background-color: #f78c09;
+            color: black;
+            border-radius: 0.594rem;
+            border: 0;
+            padding: 10px;
+            font-weight: 700;
+            font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+        }
+
+        #textoCheque {
+            display: none;
+        }
+
+        #monto {
+            appearance: textfield;
+            -webkit-appearance: textfield;
+            -moz-appearance: textfield;
+            border-radius: 0.594rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Entrega IP 4 Armando Medina</h1>
+    <h2>Conversor de números a texto</h2>
+    <div class="container">
+        <div>
+            Introduzca el monto del cheque:
+            <input type="number" id="monto">
+            <button id="button" onclick="enviar()">Enviar</button>
+        </div>
+    </div>
+    <div id="textoCheque" class="container"></div>
+</body>
+
+</html>
