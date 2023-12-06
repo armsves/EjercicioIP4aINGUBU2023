@@ -1,4 +1,4 @@
-#Ejercicio IP 4a Informática Básica - Ingeniería Informática Universidad de Burgos 2023 
+Ejercicio IP 4a Informática Básica - Ingeniería Informática Universidad de Burgos 2023 
 Profesor: Gonzalez Moya, Francisco Javier
 
 Haz en  Blockly-code, que pueda calcular el número que corresponde a la descripción de un cheque en palabras en lengua castellana. Es el ejercicio inverso al supuesto 4a. 
